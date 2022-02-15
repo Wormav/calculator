@@ -1,85 +1,69 @@
+// FONCTIONS D'OPERATIONS //
+
+function addition(nombreA , nombreB){
+    return nombreA + nombreB;
+}
+
+function multiplication(nombreA, nombreB) {
+  return nombreA * nombreB;
+}
+
+function soustraction(nombreA, nombreB) {
+  return nombreA - nombreB;
+}
+
+function division(nombreA, nombreB) {
+    if(nombreB == 0) {
+        throw new Error("Impossible de diviser par 0.");
+    }
+  return nombreA / nombreB;
+}
+
+
+
 // DEMANDER CHOIX //
 
 do {
-    var choix = prompt("Que souhaitez-vous faire?\n\n 1 - Addition\n\n 2 - Multiplication\n\n 3 - Soustraction\n\n 4 - Division\n");
-} while (choix == "" || choix == null || choix >= 5 || isNaN(choix));
+  var choix = Number(
+    prompt(
+      "Que souhaitez-vous faire?\n\n 1 - Addition\n 2 - Multiplication\n 3 - Soustraction\n 4 - Division\n"
+    )
+  );
+} while (choix != 1 && choix != 2 && choix != 3 && choix != 4);
 
 // DEMANDER NOMBRES A UTILISER //
 
 do {
-    var premierNombre = prompt("quel est le premier nombre?");
-    premierNombre = Number(premierNombre);
-    
-} while (premierNombre == "" || premierNombre == null || isNaN(premierNombre));
+  var premierNombre = Number(prompt("quel est le premier nombre?"));
+  var deuxiemeNombre = Number(prompt("quel est le deuxième nombre?"));
+} while (isNaN(premierNombre) || isNaN(deuxiemeNombre));
 
-do {
-  var deuxiemeNombre = prompt("quel est le deuxième nombre?");
-  deuxiemeNombre = Number(deuxiemeNombre)
-} while (deuxiemeNombre == "" || deuxiemeNombre == null || isNaN(deuxiemeNombre));
+// SWITCH POUR APPELER FONCTION //
 
+try {
+  switch (choix) {
+    case 1:
+      var resultat = addition(premierNombre, deuxiemeNombre);
+      break;
+    case 2:
+      var resultat = multiplication(premierNombre, deuxiemeNombre);
+      break;
 
+    case 3:
+      var resultat = soustraction(premierNombre, deuxiemeNombre);
+      break;
 
-// FONCTIONS D'OPERATIONS //
+    case 4:
+      var resultat = division(premierNombre, deuxiemeNombre);
+      break;
 
-function addition(nombreA , nombreB){ 
-    let operation = nombreA + nombreB;
+    default:
+      throw new Error("une érreur est survenue");
+      break;
+  }
+  alert("voici le resultat " + resultat); // AFFICHER LE RESULTAT //
+}
 
-    
-    alert("voici le résultat: " + operation);
- };
-
- 
-
-function multiplication(nombreA , nombreB){ 
-    let operation = nombreA * nombreB;
-
-    
-    alert("voici le résultat: " + operation);
- };
-
- function soustraction(nombreA , nombreB){ 
-    let operation = nombreA - nombreB;
-
-    
-    alert("voici le résultat: " + operation);
-    
- };
-
- function division(nombreA , nombreB){ 
-    let operation = nombreA / nombreB;
-
-   
-
-    
-    alert("voici le résultat: " + operation);
- };
-
-
-
-
- // SWITCH POUR APPELER FONCTION //
-
- switch (choix) {
-     case "1" :
-         addition(premierNombre , deuxiemeNombre);
-     break;
-     case "2" :
-         multiplication(premierNombre , deuxiemeNombre);
-     break;
-          
-     case "3" :
-         soustraction(premierNombre , deuxiemeNombre);
-    break; 
-          
-     case "4" : 
-         division(premierNombre , deuxiemeNombre);
-     break;   
-         
-     default:
-         alert("une érreur est survenue")
-         break;
- }
-
-
-
-
+catch(error) {
+    alert(error);
+}
