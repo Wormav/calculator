@@ -2,15 +2,17 @@ document.querySelector("#a-supprimer").remove();
 
 let h1 = document.createElement("h1");
 h1.textContent = "Bienvenue"
-document.body.append(h1);
+
 
 let h2 = document.createElement("h2");
 h2.textContent = "Acceuil / Une autre page";
-document.body.append(h2);
+
 
 let p = document.createElement("p");
 p.textContent = "Ceci est un paragraohe crée avec JavaScript";
-document.body.append(p);
+
+
+document.body.append(h1 , h2 , p);
 
 document.querySelector("h1").style.textAlign = "center";
 document.querySelector("h1").style.color = "white";
