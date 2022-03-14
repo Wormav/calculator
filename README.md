@@ -1,4 +1,4 @@
-# Quotes from Kaamelott
+# Javascript training
 
 Various small exercises during my learning of javascript.
 
